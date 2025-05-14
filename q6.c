@@ -9,25 +9,31 @@ Saída esperada 2: Não é um palíndromo */
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int main() {
     
     char palavra[50], palavra_invertida[50];
     int i;
+    size_t tamanho;
 
     printf("Digite uma palavra: ");
     fgets(palavra, sizeof(palavra), stdin);
 
-    size_t tamanho = strlen(palavra);
+    palavra[strcspn(palavra, "\n")] = '\0';
 
-    for(i = tamanho - 1; i >= 0; i--) {
-        palavra_invertida[i] = palavra[i];
+    tamanho = strlen(palavra);
+
+    for(i = 0; i < tamanho; i++) {
+        palavra_invertida[i] = palavra[tamanho - 1 - i];
     }
+
+    palavra_invertida[i] = '\0';
     
-    if (palavra[50] == palavra_invertida[50]) {
-        printf("E um palindromo");
+    if (strcmp(palavra, palavra_invertida) == 0) {
+        printf("E um palindromo\n");
     } else {
-        printf("Nao e um palindromo");
+        printf("Nao e um palindromo\n");
     }
     
     return 0;

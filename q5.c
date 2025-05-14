@@ -19,14 +19,14 @@ int main() {
     fgets(frase, sizeof(frase), stdin);
 
     for(i = 0; frase[i] != '\0'; i++) {
-        if(frase[i] >= 'a' && frase[i] <= 'z') {
-
-        } else if (frase[i] >= 'A' && frase[i] <= 'Z') {
-
+        if((frase[i] >= 'a' && frase[i] <= 'z') || (frase[i] >= 'A' && frase[i] <= 'Z')) {
+            frase_crip[i] = frase[i] + 3;
         } else {
-
+            frase_crip[i] = frase[i];
         }
     }
+
+    printf("Frase criptografada: %s\n", frase_crip);
 
     return 0;
 }
