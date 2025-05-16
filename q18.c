@@ -36,6 +36,7 @@ int main() {
         }
         
         scanf("%s", nome);
+        
         i++;
 
         if (idade < idade_novo) {

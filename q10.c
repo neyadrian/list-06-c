@@ -32,7 +32,7 @@ int main() {
     printf("Digite a idade: ");
     scanf("%d", &idade);
 
-    if (sexo == 'F' && idade < 25) {
+    if ((sexo == 'F' || sexo == 'f') && idade < 25) {
         printf("%sACEITA\n", nome);
     } else {
         printf("NAO ACEITA\n");
